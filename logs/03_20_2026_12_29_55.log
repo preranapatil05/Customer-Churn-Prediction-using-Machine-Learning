@@ -1,0 +1,2 @@
+[ 2026-03-20 12:29:55,987 ] 14 src.logger - INFO - Initializing ChurnPredictor
+[ 2026-03-20 12:29:55,987 ] 19 src.logger - INFO - Fetching best model from database

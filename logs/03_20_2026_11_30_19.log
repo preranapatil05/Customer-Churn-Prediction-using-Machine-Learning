@@ -1,0 +1,10 @@
+[ 2026-03-20 11:30:20,130 ] 20 src.logger - INFO - Starting model training pipeline
+[ 2026-03-20 11:30:20,130 ] 22 src.logger - INFO - Running Data Ingestion
+[ 2026-03-20 11:30:20,130 ] 53 src.logger - INFO - Starting Data Ingestion Pipeline
+[ 2026-03-20 11:30:20,130 ] 16 src.logger - INFO - Loading dataset from src/data/Telco.csv
+[ 2026-03-20 11:30:20,152 ] 18 src.logger - INFO - Data loaded successfully. Shape: (7043, 21)
+[ 2026-03-20 11:30:20,152 ] 26 src.logger - INFO - Splitting dataset into train and test sets
+[ 2026-03-20 11:30:20,160 ] 33 src.logger - INFO - Data split successful | Train shape: (5634, 21) | Test shape: (1409, 21)
+[ 2026-03-20 11:30:20,160 ] 43 src.logger - INFO - Saving train and test datasets
+[ 2026-03-20 11:30:20,162 ] 49 src.logger - ERROR - Error saving data: Cannot save file into a non-existent directory: 'data'
+[ 2026-03-20 11:30:20,162 ] 180 src.logger - ERROR - Training pipeline failed: Error saving data: Cannot save file into a non-existent directory: 'data'

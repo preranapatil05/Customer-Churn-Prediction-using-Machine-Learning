@@ -1,0 +1,3 @@
+[ 2026-03-20 12:30:09,681 ] 14 src.logger - INFO - Initializing ChurnPredictor
+[ 2026-03-20 12:30:09,681 ] 19 src.logger - INFO - Fetching best model from database
+[ 2026-03-20 12:30:09,685 ] 33 src.logger - INFO - Resolved model path: C:\Users\prera\projects\Customer Churn Prediction FastAPI\src\models\xgboost_model.pkl

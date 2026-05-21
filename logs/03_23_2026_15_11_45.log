@@ -1,0 +1,7 @@
+[ 2026-03-23 15:11:45,248 ] 14 src.logger - INFO - Initializing ChurnPredictor
+[ 2026-03-23 15:11:45,248 ] 19 src.logger - INFO - Fetching best model from database
+[ 2026-03-23 15:11:45,248 ] 33 src.logger - INFO - Resolved model path: C:\Users\prera\projects\Customer Churn Prediction FastAPI\src\models\xgboost_model.pkl
+[ 2026-03-23 15:11:48,299 ] 38 src.logger - INFO - Model loaded successfully: XGBoost
+[ 2026-03-23 15:13:33,542 ] 46 src.logger - INFO - Received prediction request
+[ 2026-03-23 15:13:33,558 ] 53 src.logger - DEBUG - Input DataFrame: {'gender': {0: 'Male'}, 'SeniorCitizen': {0: 0}, 'Partner': {0: 'No'}, 'Dependents': {0: 'No'}, 'tenure': {0: 5}, 'PhoneService': {0: 'No'}, 'MultipleLines': {0: 'No'}, 'InternetService': {0: 'DSL'}, 'OnlineSecurity': {0: 'No'}, 'OnlineBackup': {0: 'No'}, 'DeviceProtection': {0: 'No'}, 'TechSupport': {0: 'No'}, 'StreamingTV': {0: 'No'}, 'StreamingMovies': {0: 'No'}, 'Contract': {0: 'Month-to-month'}, 'PaperlessBilling': {0: 'No'}, 'PaymentMethod': {0: 'Electronic check'}, 'MonthlyCharges': {0: 70.0}, 'TotalCharges': {0: 350.0}}
+[ 2026-03-23 15:13:33,590 ] 63 src.logger - INFO - Prediction successful: {'prediction': 1, 'churn_probability': 0.5884660482406616}

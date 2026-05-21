@@ -1,0 +1,50 @@
+[ 2026-03-20 11:34:00,314 ] 20 src.logger - INFO - Starting model training pipeline
+[ 2026-03-20 11:34:00,315 ] 22 src.logger - INFO - Running Data Ingestion
+[ 2026-03-20 11:34:00,315 ] 53 src.logger - INFO - Starting Data Ingestion Pipeline
+[ 2026-03-20 11:34:00,315 ] 16 src.logger - INFO - Loading dataset from src/data/Telco.csv
+[ 2026-03-20 11:34:00,330 ] 18 src.logger - INFO - Data loaded successfully. Shape: (7043, 21)
+[ 2026-03-20 11:34:00,330 ] 26 src.logger - INFO - Splitting dataset into train and test sets
+[ 2026-03-20 11:34:00,336 ] 33 src.logger - INFO - Data split successful | Train shape: (5634, 21) | Test shape: (1409, 21)
+[ 2026-03-20 11:34:00,344 ] 43 src.logger - INFO - Saving train and test datasets
+[ 2026-03-20 11:34:00,374 ] 46 src.logger - INFO - Train and Test data saved successfully
+[ 2026-03-20 11:34:00,374 ] 57 src.logger - INFO - Data Ingestion Pipeline Completed
+[ 2026-03-20 11:34:00,374 ] 27 src.logger - INFO - Running Data Preprocessing
+[ 2026-03-20 11:34:00,374 ] 17 src.logger - INFO - Starting data cleaning process
+[ 2026-03-20 11:34:00,374 ] 19 src.logger - DEBUG - Dropping customerID column
+[ 2026-03-20 11:34:00,374 ] 23 src.logger - DEBUG - Converting TotalCharges to numeric
+[ 2026-03-20 11:34:00,374 ] 27 src.logger - DEBUG - Handling missing values in TotalCharges
+[ 2026-03-20 11:34:00,374 ] 29 src.logger - INFO - Data cleaning completed successfully
+[ 2026-03-20 11:34:00,374 ] 17 src.logger - INFO - Starting data cleaning process
+[ 2026-03-20 11:34:00,374 ] 19 src.logger - DEBUG - Dropping customerID column
+[ 2026-03-20 11:34:00,374 ] 23 src.logger - DEBUG - Converting TotalCharges to numeric
+[ 2026-03-20 11:34:00,374 ] 27 src.logger - DEBUG - Handling missing values in TotalCharges
+[ 2026-03-20 11:34:00,374 ] 29 src.logger - INFO - Data cleaning completed successfully
+[ 2026-03-20 11:34:00,374 ] 41 src.logger - INFO - Separating features and target variable
+[ 2026-03-20 11:34:00,379 ] 45 src.logger - INFO - Feature separation successful | X shape: (5634, 19), y shape: (5634,)
+[ 2026-03-20 11:34:00,379 ] 41 src.logger - INFO - Separating features and target variable
+[ 2026-03-20 11:34:00,379 ] 45 src.logger - INFO - Feature separation successful | X shape: (1409, 19), y shape: (1409,)
+[ 2026-03-20 11:34:00,379 ] 35 src.logger - INFO - Training data shape: (5634, 19)
+[ 2026-03-20 11:34:00,379 ] 36 src.logger - INFO - Test data shape: (1409, 19)
+[ 2026-03-20 11:34:00,379 ] 39 src.logger - INFO - Building preprocessing pipeline
+[ 2026-03-20 11:34:00,379 ] 12 src.logger - INFO - DataTransformation class initialized
+[ 2026-03-20 11:34:00,379 ] 20 src.logger - INFO - Building preprocessing pipeline
+[ 2026-03-20 11:34:00,379 ] 24 src.logger - DEBUG - Categorical features: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+[ 2026-03-20 11:34:00,379 ] 25 src.logger - DEBUG - Numerical features: ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+[ 2026-03-20 11:34:00,379 ] 35 src.logger - INFO - Preprocessor pipeline created successfully
+[ 2026-03-20 11:34:00,379 ] 14 src.logger - INFO - ModelPipeline initialized with provided preprocessor
+[ 2026-03-20 11:34:00,379 ] 47 src.logger - INFO - Creating database session
+[ 2026-03-20 11:34:00,379 ] 51 src.logger - INFO - Training Random Forest model
+[ 2026-03-20 11:34:00,379 ] 22 src.logger - INFO - Building Random Forest pipeline
+[ 2026-03-20 11:34:00,379 ] 34 src.logger - INFO - Random Forest pipeline created successfully
+[ 2026-03-20 11:34:01,231 ] 71 src.logger - INFO - Saving Random Forest model
+[ 2026-03-20 11:34:01,231 ] 90 src.logger - INFO - Existing RF F1: 0.5446293494704992
+[ 2026-03-20 11:34:01,231 ] 91 src.logger - INFO - New RF F1: 0.5446293494704992
+[ 2026-03-20 11:34:01,231 ] 104 src.logger - INFO - Existing RF model is better. Skipping update.
+[ 2026-03-20 11:34:01,231 ] 118 src.logger - INFO - Training XGBoost model
+[ 2026-03-20 11:34:01,231 ] 49 src.logger - INFO - Building XGBoost pipeline
+[ 2026-03-20 11:34:01,231 ] 65 src.logger - INFO - XGBoost pipeline created successfully
+[ 2026-03-20 11:34:03,195 ] 135 src.logger - INFO - Saving XGBoost model
+[ 2026-03-20 11:34:03,195 ] 151 src.logger - INFO - Existing XGB F1: 0.6200676437429538
+[ 2026-03-20 11:34:03,195 ] 152 src.logger - INFO - New XGB F1: 0.6200676437429538
+[ 2026-03-20 11:34:03,195 ] 165 src.logger - INFO - Existing XGB model is better. Skipping update.
+[ 2026-03-20 11:34:03,195 ] 177 src.logger - INFO - Training pipeline completed successfully

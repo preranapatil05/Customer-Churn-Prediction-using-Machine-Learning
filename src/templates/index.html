@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Customer Churn Prediction</h1>
+
+<form id="predictionForm">
+
+<div class="checkbox-grid">
+
+<label><input type="checkbox" name="SeniorCitizen" value="1"> Senior Citizen</label>
+<label><input type="checkbox" name="Partner" value="Yes"> Has a partner</label>
+<label><input type="checkbox" name="Dependents" value="Yes"> Has dependents</label>
+<label><input type="checkbox" name="PaperlessBilling" value="Yes"> Paperless Billing</label>
+<label><input type="checkbox" name="PhoneService" value="Yes"> Phone Service</label>
+<label><input type="checkbox" name="MultipleLines" value="Yes"> Multiple Lines</label>
+
+<label><input type="checkbox" name="OnlineSecurity" value="Yes"> Online Security</label>
+<label><input type="checkbox" name="OnlineBackup" value="Yes"> Online Backup</label>
+<label><input type="checkbox" name="DeviceProtection" value="Yes"> Device Protection</label>
+<label><input type="checkbox" name="TechSupport" value="Yes"> Tech Support</label>
+<label><input type="checkbox" name="StreamingTV" value="Yes"> Streaming TV</label>
+<label><input type="checkbox" name="StreamingMovies" value="Yes"> Streaming Movies</label>
+
+</div>
+
+<div class="dropdown-row">
+
+<label>Gender
+<select name="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+</label>
+
+<label>Internet
+<select name="InternetService">
+<option>DSL</option>
+<option>Fiber optic</option>
+<option>No</option>
+</select>
+</label>
+
+<label>Contract
+<select name="Contract">
+<option>Month-to-month</option>
+<option>One year</option>
+<option>Two year</option>
+</select>
+</label>
+
+<label>Payment
+<select name="PaymentMethod">
+<option>Electronic check</option>
+<option>Mailed check</option>
+<option>Bank transfer</option>
+<option>Credit card</option>
+</select>
+</label>
+
+</div>
+
+<div class="input-row">
+
+<input type="number" name="tenure" placeholder="Tenure">
+
+<input type="number" name="MonthlyCharges" placeholder="Monthly Charges">
+
+<input type="number" name="TotalCharges" placeholder="Total Charges">
+
+</div>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+document.getElementById("predictionForm").onsubmit = async function(e){
+
+    e.preventDefault()
+
+    const formData = new FormData(this)
+    const data = Object.fromEntries(formData.entries())
+
+    // handle checkboxes
+    const checkboxFields = [
+        "SeniorCitizen","Partner","Dependents","PhoneService",
+        "MultipleLines","OnlineSecurity","OnlineBackup",
+        "DeviceProtection","TechSupport","StreamingTV",
+        "StreamingMovies","PaperlessBilling"
+    ]
+
+    checkboxFields.forEach(field => {
+        if(!data[field]){
+            if(field === "SeniorCitizen"){
+                data[field] = 0
+            }else{
+                data[field] = "No"
+            }
+        }
+    })
+
+    // convert numbers
+    data.tenure = Number(data.tenure)
+    data.MonthlyCharges = Number(data.MonthlyCharges)
+    data.TotalCharges = Number(data.TotalCharges)
+
+    const response = await fetch("/predict",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+
+    const result = await response.json()
+
+    document.getElementById("result").innerHTML =
+        "Prediction: " + result.prediction +
+        "<br>Probability: " + result.churn_probability.toFixed(2)
+}
+
+</script>
+
+</body>
+</html>
